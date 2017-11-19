@@ -54,6 +54,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "system/int/sys_int.h"
 #include "system/tmr/sys_tmr.h"
 #include "driver/tmr/drv_tmr.h"
+#include "driver/usart/drv_usart_static.h"
 #include "system/ports/sys_ports.h"
 #include "esp8266_driver.h"
 #include "heartbeat.h"
@@ -92,6 +93,8 @@ typedef struct
 {
     SYS_MODULE_OBJ  sysTmr;
     SYS_MODULE_OBJ  drvTmr0;
+    SYS_MODULE_OBJ  drvUsart0;
+    SYS_MODULE_OBJ  drvUsart1;
 
 } SYSTEM_OBJECTS;
 

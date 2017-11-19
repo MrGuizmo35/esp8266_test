@@ -113,6 +113,8 @@ const DRV_TMR_INIT drvTmr0InitData =
     .asyncWriteEnable = false,
 };
 // </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="DRV_USART Initialization Data">
+// </editor-fold>
 
 // *****************************************************************************
 // *****************************************************************************
@@ -178,7 +180,13 @@ void SYS_Initialize ( void* data )
     SYS_INT_VectorSubprioritySet(INT_VECTOR_T1, INT_SUBPRIORITY_LEVEL0);
  
  
- 
+     sysObj.drvUsart0 = DRV_USART_Initialize(DRV_USART_INDEX_0, (SYS_MODULE_INIT *)NULL);
+    sysObj.drvUsart1 = DRV_USART_Initialize(DRV_USART_INDEX_1, (SYS_MODULE_INIT *)NULL);
+    SYS_INT_VectorPrioritySet(INT_VECTOR_UART2, INT_PRIORITY_LEVEL1);
+    SYS_INT_VectorSubprioritySet(INT_VECTOR_UART2, INT_SUBPRIORITY_LEVEL0);
+    SYS_INT_VectorPrioritySet(INT_VECTOR_UART5, INT_PRIORITY_LEVEL1);
+    SYS_INT_VectorSubprioritySet(INT_VECTOR_UART5, INT_SUBPRIORITY_LEVEL0);
+
     /* Initialize System Services */
 
     /*** Interrupt Service Initialization Code ***/
